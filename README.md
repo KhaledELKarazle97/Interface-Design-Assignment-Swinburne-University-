@@ -1,0 +1,2 @@
+# Interface-Design-Assignment-Swinburne-University-
+A University assignment that i have completed in 4 weeks. The main goal of the website it to provide a communication channel between the university's student council and the students/public. The website is written in HTML, CSS, JavaScript and uses Bootstrap, AngularJS and AngularFire to communicate with the database. As for the back-end i have used firebase's real-time database, authentication services, storage and firebase hosting to make the website live
