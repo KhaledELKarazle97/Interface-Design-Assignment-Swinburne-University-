@@ -1,0 +1,133 @@
+<!--
+   Author: Khaled Yahya ELKarazle - 100074076
+   Organization: Swinburne Sarawak Student Council
+   Date: 24/04/2018
+   -->
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head>
+    <title>Media Centre | Swinburne Sarawak Student Council</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <link href="Framework/css/mystyle.css" rel="stylesheet" type="text/css">
+    <link href="Framework/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-storage.js"></script>
+    <script src="Framework/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Framework/js/angular.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="Framework/js/angular-route.js"></script>
+    <script src="Framework/js/others.js"></script>
+    <script src="Framework/js/myApp.js"></script>
+    <script src="Framework/js/bootstrap.js"></script>
+    <link href="Images/sssc_logo.ico" rel="icon">
+</head>
+
+<body data-ng-controller="showNewsController">
+    <div id="bg-media">
+        <!--bg for media-->
+        <div class="container">
+            <Header-file></Header-file>
+            <!--navbar-->
+            <div class="row">
+                <div class="col-md-11 col-xs-12 col-lg-11 col-sm-12 news_head">
+                    <h1>Media Centre</h1>
+                    <h4>Here we have provided you with the latest news and business deals to keep in touch with us.</h4>
+                    <!--header-->
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-8 col-xs-12 col-lg-8 col-sm-12 news">
+                    <!--news column-->
+                    <h2>News</h2>
+                    <hr>
+
+                    <h4>Recent media releases and news from Swinburne Sarawak Student Council as well as Swinburne Sarawak Clubs and Societies.</h4>
+
+                    <!--tiles of news-->
+                    <div class="card" data-ng-repeat="news in newsImages | offset: currentPage*newsperpage| limitTo: newsperpage">
+                        <img src="{{news.url}}" class="img-responsive news-img" alt="news-Images">
+                        <h4 class="card-title newscontent">{{news.newsHeading}}</h4>
+                        <div class="card-body">
+                            <h5 class="card-text newscontent"><em>{{news.subHeading}}</em></h5>
+                            <a href="" data-ng-click="update(news.$id)" data-toggle="modal" data-target="#newsModal" id="read-more">Read More ></a>
+                        </div>
+                    </div>
+                    <br>
+                    <ul class="pagination">
+                        <li data-ng-class="prevPageDisabled()">
+                            <span data-ng-click="prevPage()" class="pagination-style"><i class="fa fa-angle-double-left"></i></span>
+                        </li>
+                        <li data-ng-repeat="n in range()" data-ng-class="{active: n == currentPage}" data-ng-click="setPage(n)">
+                            <span class="pagination-number-style">{{n+1}}</span>
+                        </li>
+                        <li data-ng-class="nextPageDisabled()">
+                            <span data-ng-click="nextPage()" class="pagination-number-style"><i class="fa fa-angle-double-right"></i></span>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 sponsor">
+                    <!--sponsorship column-->
+                    <h2>Sponsorships</h2>
+                    <hr>
+                    <h4>Do You Want to Contribute ?</h4>
+                    <p>As the only student body representative in Swinburne Sarawak, we always work to enahance Swinburne Sarawak students life experience.</p>
+
+
+
+                    <h4>How is it done ?</h4>
+                    <p>We will normally look for the items we are lacking, then either ask our partners our search for sponsors. After we agree on approaching a certain sponsor, we will prepare a detailed proposal with the break-down and all the required details. Furthermore, we will call for a meeting between our Marketing team and the sponsor to discuss the benefits provided out of this sponsorship.</p>
+
+
+
+                    <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fswinburnestudentcouncil%2F&tabs=timeline&width=250&height=20%25&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="250" height="20%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+    facebook plugin not working due to restriction on our facebook page thus replaced with sponsorship
+-->
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-11 col-lg-11 col-sm-12 col-xs-12 news_footer">
+                    <h2>Media Enquiries:</h2>
+                    <h4>- Email: SSSCMedia@live.com</h4>
+                    <h4>- Department: Marketing, Media and Publications</h4>
+
+                </div>
+            </div>
+        </div>
+        <footer-file></footer-file>
+    </div>
+    <div id="newsModal" class="modal">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <h1>{{newsImages[indexValue].newsHeading}}</h1>
+                        <h3 class="caption"><em>{{newsImages[indexValue].subHeading}}</em></h3>
+                        <h5><em>Published on : {{newsImages[indexValue].date}}</em></h5>
+                        <img src="{{newsImages[indexValue].url}}" class="img-responsive main-img" alt="News-Image">
+                        <div class="MyWell">{{newsImages[indexValue].article}}</div>
+                        <h5><em>Published by: Marketing & Public Relations Division</em></h5>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

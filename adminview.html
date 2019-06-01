@@ -1,0 +1,67 @@
+<!--
+   Author: Khaled Yahya ELKarazle - 100074076
+   Organization: Swinburne Sarawak Student Council
+   Date: 24/04/2018
+   -->
+<!DOCTYPE html>
+<html lang="en" data-ng-app="adminapp">
+   <head>
+      <title>Administrator | Swinburne Sarawak Student Council</title>
+      <meta name="viewport" content="width=device-width , initial-scale=1" />
+      <link href="Framework/css/mystyle.css" rel="stylesheet" type="text/css">
+      <link href="Framework/css/bootstrap.css" type="text/css" rel="stylesheet">
+      <link href="Images/sssc_logo.ico" rel="icon">
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-storage.js"></script>
+      <script src="Framework/js/jquery.js"></script>
+      <script src="Framework/js/angular.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+      <script src="Framework/js/angular-route.js"></script>
+      <script src="Framework/js/adminapp.js"></script>
+      <script src="Framework/js/bootstrap.js"></script>
+      <script src="Framework/js/others.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js
+         "></script>
+      <link href="Images/sssc_logo.ico" rel="icon">
+   </head>
+   <body data-ng-controller="adminctrl">
+      <div class="container body-content">
+         <Header-file></Header-file><!--nav bar-->
+         <div class="row">
+            <div class="col-md-6 col-xs-10 col-lg-6 col-sm-10 col-xs-offset-1 col-sm-offset-1  col-md-offset-3 col-lg-offset-3" data-ng-if="signin.state == false">
+               <form><!--login form-->
+                  <div class="Admin-login">
+                     <h4 id="admin-login">Authorized Personnel Only</h4>
+                     <input type="text" id="userName" class="form-control" placeholder="username" data-ng-model="adminuser" required>
+                     <br>
+                     <input type="password" id="userPassword" class="form-control" placeholder="password"  data-ng-model="adminpwrd" required>
+                     <br>
+                     <button type="submit" class="btn btn-basic" data-ng-click="signInWithEmailAndPassword(adminuser,adminpwrd)">Sign in</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div data-ng-if="signin.state == true">
+            <div class="sidenav">
+               <span class="icon"><a href="#!event"><span class="fa fa-calendar" title="Events"></span></a></span>
+               <span class="icon"><a href="#!news"><span class="fa fa-newspaper-o"></span></a></span>  
+               <span class="icon"><a href="#!ann"><span class="fa fa-bullhorn" title="Announcements"></span></a></span>   
+               <span class="icon"><a href="#!feed"><span class="fa fa-comments" title="Feedback"></span></a></span>
+               <span class="icon"><a href=""><span class="fa fa-sign-out" title="Logout" data-ng-click="signout()"></span></a></span>
+            </div>
+         </div>
+         <div id="admin-content"  class="main" data-ng-if="signin.state == true">
+            <div data-ng-view=""><!--show content using route-->
+            </div>
+         </div>
+         <br><br>
+      </div>
+      <div class="row">
+         <footer-file></footer-file><!--footer-->
+       </div>
+   </body>
+</html>

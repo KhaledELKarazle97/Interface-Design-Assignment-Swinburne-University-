@@ -1,0 +1,907 @@
+#bg-about:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url('../../Images/bg-02.jpg');
+    -webkit-filter: blur(35px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(5px);
+    filter: blur(2px);
+}
+
+#bg-about {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.link-feed a {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.link-feed a:focus {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#search-id {
+    width: 30%;
+}
+
+.link-feed a:hover {
+    color: #ED2939;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s;
+
+}
+
+.feedback-style {
+    background-color: #222222;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 5%;
+    padding: 2% 2% 2% 2%;
+
+}
+
+.search-form {
+    text-align: left;
+}
+
+
+#bg-feedback:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url('../../Images/bg-01.jpg');
+    -webkit-filter: blur(35px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(5px);
+    filter: blur(10px);
+}
+
+#bg-feedback {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg-media:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url('../../Images/bg-04.jpg');
+    -webkit-filter: blur(35px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+#bg-index:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    display: block;
+    background-image: url(../../Images/bg-06.jpg);
+    -webkit-filter: blur(35px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(5px);
+    filter: blur(10px);
+}
+
+#bg-index {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-responsive {
+    margin: auto;
+}
+
+
+.event {
+    background-color: #ED2939;
+    text-align: center;
+    color: white;
+}
+
+.MyWell {
+    white-space: pre-line;
+    overflow: hidden;
+    text-justify: inter-word;
+    text-align: justify;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: black;
+}
+
+
+
+.content {
+    text-align: center;
+    color: #222222;
+}
+
+.* {
+    margin: 0;
+    padding: 0;
+}
+
+.centerButton {
+    display: block;
+    margin: auto;
+}
+
+
+body {
+    padding-top: 60px;
+}
+
+.bg {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.news-head {
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    margin-top: 1%;
+    border-bottom-left-radius: 10px;
+}
+
+
+
+.main-img {
+    width: 80%;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 8vw;
+    object-fit: cover;
+
+}
+
+.content-header {
+    text-align: center;
+}
+
+/*content within events in home*/
+
+#event-content {
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 1%;
+    height: 380px;
+
+}
+
+#sssc-logo {
+    max-width: 50px;
+    margin-top: 0px;
+}
+
+#top-design {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#sts {
+    font-weight: bold;
+}
+
+#showSts {
+    font-size: 20px;
+}
+
+/*content within announcement in home*/
+
+#announcement-content {
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 1%;
+    height: 380px;
+
+}
+
+
+/*all text in modal*/
+
+.modal-text {
+    color: black;
+}
+
+/*.pagination .pagination-style {
+    background-color: #ED2939;
+    font-weight: bold;
+    color: white;
+}
+
+.pagination .pagination-style:hover {
+    background-color: #ED2939;
+    color: white;
+}
+
+.pagination .pagination-style:active {
+    background-color: #ED2939;
+    font-weight: bold;
+    color: white;
+}
+
+.pagination .pagination-style:visited {
+    background-color: #ED2939;
+    font-weight: bold;
+    color: white;
+}
+
+.pagination .pagination-number-style {
+    color: #ED2939;
+    font-weight: bold;
+    background-color: white;
+}
+
+.pagination .pagination-number-style:active {
+    color: #ED2939;
+    background-color: white;
+    font-weight: bold;
+
+}
+
+.pagination .pagination-number-style:hover {
+    color: white;
+    background-color: #ED2939;
+    font-weight: bold;
+}
+
+
+.pagination > li.active > a,
+.pagination > li.active > span {
+    background-color: #ED2939;
+}*/
+
+/*banner in homepage*/
+
+.banner {
+    margin-top: 0%;
+    width: 100%;
+}
+
+
+
+.pagination .pagintation-number-style {
+    color: #ED2939;
+}
+
+.pagination .pagination-number-style a:hover {
+    background-color: #ED2939;
+    color: #ED2939;
+}
+
+/*about content*/
+
+.about {
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 2% 2% 2% 2%;
+    margin: 2% 2% 2% 2%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+/*feedback header*/
+
+#feedback {
+    background-color: #ED2939;
+    color: white;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    padding-right: 2%;
+    margin-bottom: -6%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+/*about header*/
+
+#about-head {
+    background-color: #ED2939;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2% 2% 2% 2%;
+    margin-top: 1%;
+    margin-bottom: -3%;
+
+}
+
+
+
+/*for tables in homepage*/
+
+.content-table {
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+
+.content-table:hover {
+    color: white;
+    transition: .3s;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #ED2939;
+}
+
+/*------------------*/
+
+/*sidenav in admin*/
+
+.sidenav {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #222222;
+    overflow-x: hidden;
+    padding-top: 70px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.sidenav a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    display: block;
+}
+
+/*sidenav in admin*/
+
+.icon a {
+    font-size: 35px;
+    text-align: center;
+    color: white;
+}
+
+.icon a:hover {
+    font-size: 35px;
+    color: #ED2939;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.icon a:focus {
+    font-size: 35px;
+    color: #ED2939;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.icon a:active {
+    font-size: 35px;
+    color: #ED2939;
+    text-decoration: none;
+}
+
+/*------------------*/
+
+/*feedback status*/
+
+.stat a {
+    color: #ED2939;
+    font-size: 20px;
+}
+
+.stat a:hover {
+    color: #ED2939;
+    text-decoration: none;
+}
+
+/*----------------*/
+
+/*admin link in footer*/
+
+.open-admin {
+    color: #ED2939;
+    background-color: #222222;
+    padding: 2% 2% 2% 2%;
+    border-radius: 10px;
+    float: left;
+    clear: both;
+    display: inline;
+    color: white;
+}
+
+.open-admin:hover {
+    color: #ED2939;
+    background-color: #222222;
+    padding: 2% 2% 2% 2%;
+    border-radius: 10px;
+    float: left;
+    display: inline;
+    color: #ED2939;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/*---------------------------*/
+
+/*links to add items from admin*/
+
+.addnew {
+    color: #ED2939;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline;
+    float: right;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.addnew:hover {
+    color: #ED2939;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/*-------------------------*/
+
+/*admin login form*/
+
+.Admin-login {
+    background-color: #222222;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color: #222222;
+    border-width: 5px;
+    box-shadow: 0 1px 0 #222222;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    color: white;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/*picture in navbar*/
+
+#ssscbrand {
+    height: 20%;
+    width: 20%;
+    margin-left: 45%;
+    padding-right: 10%;
+    margin-top: 2%;
+}
+
+/*--------------*/
+
+/*table style*/
+
+.table {
+    border-style: solid;
+    border-width: 4px;
+    border-collapse: collapse;
+}
+
+/*-------------*/
+
+/*footer*/
+
+#SSSCFooter {
+    background-color: #222222;
+    color: white;
+    width: 100%;
+    height: 100%;
+    /*    position: absolute;
+    height: auto;
+    bottom: 0;
+    padding-top:20px;
+    padding-bottom:20px;*/
+    /*	position:absolute;
+		bottom:0;
+		height:450px;*/
+    margin-top: 5%;
+
+    width: 100%;
+
+}
+
+/*-------------*/
+
+/*
+html,
+	body {
+		margin:0;
+		padding:0;
+		height:100%;
+	}
+*/
+
+/*picture in footer*/
+
+.footer-mark {
+    width: 20%;
+    height: 20%;
+    margin: auto;
+}
+
+/*--------------*/
+
+/*news column*/
+
+.news {
+    background-color: #222222;
+    color: white;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 1%;
+    padding-bottom: 0%;
+    margin-right: 0px;
+    float: left;
+    clear: both;
+}
+
+/*---------------*/
+
+/*media contact*/
+
+.news_footer {
+    background-color: #222222;
+    color: white;
+    padding-left: 2%;
+    margin-top: 1%;
+    margin-bottom: -12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*---------------------*/
+
+/*header of media center*/
+
+.news_head {
+    background-color: #ED2939;
+    color: white;
+    padding-left: 2%;
+    margin-top: 1%;
+    margin-bottom: -12px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/*----------------------------*/
+
+/*adding margin to content on admin page*/
+
+#admin-content {
+    margin-left: 15%;
+}
+
+/*---------------------*/
+
+/*sponsorship column*/
+
+.sponsor {
+    background-color: #222222;
+    color: white;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 1%;
+    height: 587px;
+    padding-bottom: 1px;
+    overflow: auto;
+}
+
+/*-----------------------*/
+
+/*img on card news*/
+
+.news-img {
+    width: 100%;
+    height: auto;
+
+}
+
+/*-------------------*/
+
+/*news card styling*/
+
+.news .card {
+    width: 30rem;
+    border-style: solid;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    background-color: #ED2939;
+    border-color: #222222;
+    align-items: center;
+    display: table-cell;
+    height: 100%;
+
+}
+
+/*-----------------------------*/
+
+/*content within news card*/
+
+.newscontent {
+    padding: 2% 2% 2% 2%;
+}
+
+
+/*read more in news*/
+
+#read-more {
+    color: white;
+    padding: 2% 2% 2% 2%;
+    font-weight: bold;
+}
+
+
+#read-more: hover {
+    color: white;
+    padding: 2% 2% 2% 2%;
+    font-weight: bold;
+}
+
+/*---------------------*/
+
+/*body{
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    display: block;
+}
+
+.main{
+    padding-bottom: 163px;
+}*/
+
+/*emai,copyright styling*/
+
+#SSSCFooter .underlined {
+    text-decoration: none;
+}
+
+#SSSCFooter .underlined:hover {
+    color: #ED2939;
+}
+
+
+
+#SSSCFooter .row ul > li > a {
+    color: white;
+    font-weight: bold;
+}
+
+#SSSCFooter .row ul > li > a:hover {
+    color: #ED2939;
+    font-weight: bold;
+    transition: .3s;
+
+}
+
+
+#SSSCFooter .copyright p {
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+#SSSCFooter .copyright p a {
+    align-content: center;
+    font-weight: bold;
+}
+
+#SSSCFooter .copyright p a:hover {
+    align-content: center;
+    font-weight: bold;
+    color: #ED2939;
+    transition: .3s;
+}
+
+/*--------------------------------------*/
+
+/*footer static text styling*/
+
+#SSSCFooter ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+    text-align: center;
+}
+
+#SSSCFooter h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/*------------------------------*/
+
+/*social media and links in footer*/
+
+#SSSCFooter a {
+    color: white;
+    text-decoration: none;
+}
+
+#SSSCFooter a:hover,
+#SSSCFooter a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#SSSCFooter .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 16px;
+}
+
+#SSSCFooter .social-networks a {
+    font-size: 32px;
+    color: white;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+#SSSCFooter .social-networks a:hover {
+    text-decoration: none;
+}
+
+#SSSCFooter .facebook:hover {
+    color: #0077e2;
+}
+
+#SSSCFooter .instagram:hover {
+    color: deeppink;
+}
+
+#SSSCFooter .mail:hover {
+    color: #ED2939;
+}
+
+/*--------------------------------------*/
+
+/*styling all buttons*/
+
+.btn {
+    color: white;
+    background-color: #ED2939;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+    text-decoration: none;
+    margin: 2% 2% 2% 2%;
+}
+
+nav.navbar-findcond {
+    background: #222222;
+    /*navbar background color*/
+}
+
+
+nav.navbar-findcond ul.navbar-nav a {
+    color: white;
+    border-width: 0 0 2px 0;
+    /*font color of links in navbar*/
+    border-color: white;
+    font-weight: bold;
+
+}
+
+
+nav.navbar-findcond ul.navbar-nav a:hover,
+nav.navbar-findcond ul.navbar-nav a:visited,
+nav.navbar-findcond ul.navbar-nav a:focus,
+nav.navbar-findcond ul.navbar-nav a:active {
+    background: #ED2939;
+    font-weight: bold;
+    transition: .3s;
+    /*color of links in navbar*/
+}
+
+nav.navbar-findcond button.navbar-toggle {
+    background: #222222;
+    /*hamburger navbar background*/
+    border-radius: 2px;
+}
+
+nav.navbar-findcond button.navbar-toggle:hover {
+    background: #ED2939;
+    /*if hover over hamburger nav*/
+}
+
+nav.navbar-findcond button.navbar-toggle > span.icon-bar {
+    background: white;
+    /*The hamburger lines in nav button*/
+}
+
+body {
+    padding-top: 60px;
+    height: 100%;
+
+}
+
+.hrColor {
+    display: block;
+    height: 1px;
+    border-style: solid;
+    border-top: 1px;
+    margin: 1em 0;
+    padding: 0;
+    color: black;
+}
+
+/*#content {
+    min-height: 100%;
+    position: relative;
+}*/
+
+html,
+body {
+    overflow-x: hidden;
+}

@@ -1,0 +1,29 @@
+<div data-ng-controller="checkfeed">
+<div class="row"> 
+<div class="col-md-6 col-xs-12 col-lg-6 col-sm-12 col-md-offset-3" style="background-color: #222222; color: white; border-radius: 10px; margin-top: 5%;">
+            <form>
+            <h1>Check Feedback Status</h1>
+            <h4>You can check the status of your feedback by entering the Email address used for the feedback below</h4>
+            <label>Feedback ID:</label>
+            <input type="text" data-ng-model="feedid" class="form-control">
+            <button type="submit" data-ng-click ="searchfeed()" class="btn btn-basic" style="margin-bottom: 2%;">Check Status</button>
+            </form>
+</div>
+
+</div>
+<div class="row"> 
+      <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12 col-md-offset-3" data-ng-show="infoexist == true" style="background-color: #222222; color: white; border-radius: 10px; margin-top: 5%;">
+      
+            <h2>{{feed}}</h2><hr>
+            <h4>Name:{{name}}</h4>
+            <h4>Email:{{email}}</h4>
+            <h4>Phone Number:{{phone}}</h4>
+            <h4>Type:{{type}}</h4>
+            <h4>Status:{{status}}</h4>
+  
+      </div>
+      <div data-ng-show="infoexist == false"><br>
+      <h2 style="background-color: #222222; color: white; border-radius: 10px; margin-top: 5%;">{{feed}}</h2>
+      </div>
+</div>
+</div>

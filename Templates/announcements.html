@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Annoucements</title>
+</head>
+<div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" data-ng-controller="showAnn">
+    <h1>List of Announcements</h1>
+    <hr class="hrColor">
+
+    <a href="" title="Add A New Announcement" class="addnew" aria-hidden="true" data-toggle="modal" data-target="#addAnn"> + Add Announcement</a>
+    <!--add announcements-->
+
+    <table class="table table-bordered">
+        <tr>
+            <th class="event">Announcement</th>
+            <th class="event">Action</th>
+        </tr>
+        <tr data-ng-repeat="i in official_announcements">
+            <td>{{i.title}}</td>
+            <!--all announcements-->
+            <td class="text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More Options
+                  <span class="caret"></span>
+                  </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="" data-ng-click="update(i.$id)" data-toggle="modal" data-target="#annmodal">Show Details</a></li>
+                        <!--show-->
+                        <li><a href="" data-ng-click="update(i.$id)" data-toggle="modal" data-target="#editAnnModal">Edit Announcement</a></li>
+                        <!--edit-->
+                        <li><a href="" data-ng-click="removeann(i.$id)">Delete Announcement</a></li>
+                        <!--delete-->
+                    </ul>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+       <div id="annmodal" class="modal"> <!--modal for announcement-->
+                        <div class="modal-dialog modal-lg modal-text">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="content">
+                                            <h1>{{official_announcements[indexValue].title}}</h1>
+                                            <h6><em>Posted on : {{official_announcements[indexValue].date}}</em><br>
+                                            </h6>
+                                        </div>
+                                        <hr>
+                                        <div class="MyWell">
+                                            <h3>{{official_announcements[indexValue].official_announcement}}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    <div id="addAnn" class="modal modal-text"> <!--add announcement-->
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-controller="announcements" data-ng-if="signin.state == true">
+                    <form>
+                        <h2>Official Announcements</h2>
+                        <hr class="hrColor">
+                        <label>Title:</label>
+                        <input type="text" id="title" class="form-control" data-ng-model="anntitle" required><br>              
+                        <label for="ann">Announcement:</label><br>
+                        <textarea class="form-control" cols="10" rows="20" data-ng-model="announcement" id="ann" required></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-basic" data-ng-click="postann()">Upload</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" role="dialog" id="editAnnModal"> <!--edit announcement-->
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content txtsize">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1 class="modal-title">{{official_announcements[indexValue].title}}</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <label>Title:</label>
+                            <input type="text" data-ng-model="official_announcements[indexValue].title" class="form-control"/>
+                            <label>Announcement:</label>
+                            <textarea data-ng-model="official_announcements[indexValue].official_announcement" class="form-control" cols="10" rows="20"></textarea>
+                            <p>posted on : {{official_announcements[indexValue].date}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-basic" data-ng-click="saveAnn()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

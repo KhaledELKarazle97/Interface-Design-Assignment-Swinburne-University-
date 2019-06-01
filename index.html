@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <title>Swinburne Sarawak Student Council</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="Framework/css/mystyle.css">
+    <link href="Framework/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-storage.js"></script>
+    <script src="Framework/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Framework/js/angular.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="Framework/js/angular-route.js"></script>
+    <script src="Framework/js/myApp.js"></script>
+    <script src="Framework/js/bootstrap.js"></script>
+    <link href="Images/sssc_logo.ico" rel="icon">
+    <script src="Framework/js/others.js"></script>
+
+</head>
+
+<body>
+    <Header-file></Header-file>
+    <div id="bg-index">
+        <div class="row">
+            <img src="Images/SSSC_Alt.jpg" alt="SSSC_Banner" title="Swinburne Sarawak Student Council" class="img-responsive banner">
+        </div>
+
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div id="event-content" class="col-md-5 col-lg-5 col-xs-10 col-sm-10  col-sm-offset-1 col-xs-offset-1" data-ng-controller="showevent">
+                    <h3>Upcoming Events</h3>
+                    <hr>
+                    <input type="text" placeholder="Event Name..." id="eventsearch" class="form-control" data-ng-model="obj.event" />
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="event">Event</th>
+                            </tr>
+                        </thead>
+                        <tr data-ng-repeat="i in events | filter:obj  | offset: currentPage*eventperpage| limitTo: eventperpage | orderBy: obj.date">
+                            <td data-ng-click="updateevent(i.$id)" data-toggle="modal" data-target="#eventmodal" class="content-table">{{i.event}} <i class="fa fa-angle-double-right"></i></td>
+                        </tr>
+                    </table>
+                    <div id="eventmodal" class="modal modal-text"> 
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div>
+                                        <h3>Event Details</h3>
+                                        <hr class="hrColor">
+                                        <ul>
+                                            <li>Event name : {{events[indexValue].event}}</li>
+                                            <li>Event Date : {{events[indexValue].date | date : "dd-MM-yyyy"}}</li>
+                                            <li>Event Time : {{events[indexValue].time}}</li>
+                                            <li>Event Organizer : {{events[indexValue].Organizer}}</li>
+                                            <li>About This Event : {{events[indexValue].Description}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="pagination">
+                        <li data-ng-class="prevPageDisabled()">
+                            <span data-ng-click="prevPage()" class="pagination-style"> <i class="fa fa-angle-double-left"></i></span>
+                        </li>
+                        <li data-ng-repeat="n in range()" data-ng-class="{active: n == currentPage}" data-ng-click="setPage(n)">
+                            <span class="pagination-number-style">{{n+1}}</span>
+                        </li>
+                        <li data-ng-class="nextPageDisabled()">
+                            <span data-ng-click="nextPage()" class="pagination-style"><i class="fa fa-angle-double-right"></i></span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="announcement-content" class="col-xs-10  col-lg-5 col-md-5 col-sm-10 col-sm-offset-1 col-xs-offset-1" data-ng-controller="showAnn">
+                    <h3>Announcements</h3>
+                    <hr>
+                    <input type="text" placeholder="Search for Announcements..." class="form-control" data-ng-model="obj.title" /><br>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="event">Announcement</th>
+                            </tr>
+                            <tr data-ng-repeat="i in official_announcements | filter:obj  | offset: currentPage*annperpage| limitTo: annperpage">
+                                <td data-ng-click="update(i.$id)" data-toggle="modal" data-target="#annmodal" class="content-table">{{i.title}} <i class="fa fa-angle-double-right"></i></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        <li data-ng-class="prevPageDisabled()">
+                            <span data-ng-click="prevPage()" class="pagination-style"><i class="fa fa-angle-double-left"></i></span>
+                        </li>
+                        <li data-ng-repeat="n in range()" data-ng-class="{active: n == currentPage}" data-ng-click="setPage(n)">
+                            <span class="pagination-number-style">{{n+1}}</span>
+                        </li>
+                        <li data-ng-class="nextPageDisabled()">
+                            <span data-ng-click="nextPage()" class="pagination-style"><i class="fa fa-angle-double-right"></i></span>
+                        </li>
+                    </ul>
+                    <div id="annmodal" class="modal"> 
+                        <div class="modal-dialog modal-lg modal-text">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="content">
+                                            <h1>{{official_announcements[indexValue].title}}</h1>
+                                            <h5><em>Posted on : {{official_announcements[indexValue].date}}</em><br>
+                                            </h5>
+                                        </div>
+                                        <hr>
+                                        <div class="MyWell">
+                                            <h3>{{official_announcements[indexValue].official_announcement}}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer-file></footer-file>
+    </div>
+</body>
+</html>

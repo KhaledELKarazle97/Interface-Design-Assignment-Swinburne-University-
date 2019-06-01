@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>News</title>
+</head>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-controller="showNewsController">
+    <h1>List of Uploaded News</h1>
+    <hr class="hrColor">
+    <a href="" title="Add A New Event" class="addnew" aria-hidden="true" data-toggle="modal" data-target="#addnewsmodal"> + Add News</a>
+    <table class="table table-bordered">
+        <tr>
+            <th class="event">Heading</th>
+            <th class="event">Action</th>
+        </tr>
+        <tr data-ng-repeat="news in newsImages">
+            <td>{{news.newsHeading}}</td>
+            <td class="text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     More Options
+                                        <span class="caret"></span>
+                                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="" data-ng-click="update(news.$id)" data-toggle="modal" data-target="#newsModal">Show Details</a></li>
+                        <!--view news-->
+                        <li><a href="" data-ng-click="update(news.$id)" data-toggle="modal" data-target="#editNewsModal">Edit News</a></li>
+                        <!--amend news-->
+                        <li><a href="" data-ng-click="removepub(news.$id)">Delete News</a></li>
+                        <!--delete news-->
+                    </ul>
+                </div>
+            </td>
+
+        </tr>
+
+    </table>
+    <div class="modal" role="dialog" id="editNewsModal">
+        <!--modal to edit news-->
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content txtsize">
+                <div class="modal-header">
+                    <h1 class="modal-title">{{newsImages[indexValue].newsHeading}}</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
+                            <label>Heading</label>
+                            <input type="text" data-ng-model="newsImages[indexValue].newsHeading" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
+                            <label>Sub-Heading</label>
+                            <input type="text" data-ng-model="newsImages[indexValue].subHeading" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
+                            <label>Article</label>
+                            <textarea data-ng-model="newsImages[indexValue].article" cols="50" rows="40" class="form-control"></textarea>
+                            <label>Publication Date:</label>
+                           
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 txtsize">
+                            <img src="{{newsImages[indexValue].url}}" class="img-responsive modal-content center-all" alt="news_img">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-basic" data-ng-click="saveNews()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="newsModal" class="modal">
+        <!--modal to show news-->
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <h1>{{newsImages[indexValue].newsHeading}}</h1>
+                        <h5><em>Published by: Marketing & Public Relations Division</em></h5>
+                        <h5><em>Published on: {{newsImages[indexValue].date}}</em></h5>
+                        <img src="{{newsImages[indexValue].url}}" class="img-responsive" alt="news_img">
+                        <hr class="hrColor">
+
+                        <div class="MyWell">{{newsImages[indexValue].article}}</div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="addnewsmodal" class="modal">
+        <!--modal to add news-->
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><br>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-controller="newsController">
+                        <form>
+                            <h2>Upload News</h2>
+                            <hr class="hrColor">
+                            <label>Heading</label>
+                            <input type="text" class="form-control" data-ng-model="newsHeading" required>
+                            <label>Sub-heading</label>
+                            <input type="text" class="form-control" data-ng-model="subHeading" required>
+                            <label>Article:</label><br>
+                            <textarea class="form-control" cols="50" rows="30" data-ng-model="article" required>
+
+                        </textarea><br>
+                            <label data-ng-hide="newsHeading == undefined || article == undefined || subHeading == undefined">Select an image:</label>
+                            <input type="file" class="file" id="newspic" data-ng-hide="newsHeading == undefined || article == undefined || subHeading == undefined"><br>
+                            <button type="submit" class="btn btn-basic" data-ng-click="postnews()">Upload</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</html>

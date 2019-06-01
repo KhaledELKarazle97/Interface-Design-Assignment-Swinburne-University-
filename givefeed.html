@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Give a Feedback</title>
+   </head>
+   <div class="row" data-ng-controller="feedbackcontrol">
+      <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12 col-md-offset-3 ">
+         <form class="form-group" data-ng-controller="feedbackcontrol">
+            <div style="background-color: #222222; color: white; border-radius: 10px; padding: 5%; margin-top: 1%;">
+               <h1>We would like to hear from you</h1>
+               <h4>Through the form below, you can send us all your compalints, questions and we will reply you as soon as we can</h4>
+               <fieldset>
+                  <input type="text" id="name" class="form-control" required="required" data-ng-model="senderName" placeholder="Full Name" /><br>
+                  <input type="email" id="eMail" class="form-control" required="required" data-ng-model="email" placeholder="Email Address"/><br>
+                  <input type="tel" id="pnumber" class="form-control" data-ng-model="phone" placeholder="Phone Number"/>
+                  <label>I would like to:</label>
+                  <select class="form-control" data-ng-model="feedType">
+                     <option selected disabled hidden style='display: none' value=''>--</option>
+                     <option>Give a feedback</option>
+                     <option>Make a Complain</option>
+                     <option>Give a Suggestion</option>
+                     <option>Request For a Call / Email</option>
+                  </select>
+                  <br>
+                  <textarea id="msg" class="form-control" rows="4" cols="50" required="required" data-ng-model="msg" placeholder="Enter Your Message Here..."></textarea>
+                  <br>
+                  <input type="submit" class="btn" value="Submit" data-ng-click="sendfeed()"/>
+                  <input type="reset" class="btn">
+               </fieldset>
+            </div>
+         </form>
+      </div>
+   </div>
+</html>

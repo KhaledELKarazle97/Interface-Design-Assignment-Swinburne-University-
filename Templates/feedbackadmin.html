@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+</head>
+<div class="row" data-ng-if="signin.state == true">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-if="signin.state == true" data-ng-controller="showfeedback">
+        <h2>Feedback and Complaints</h2>
+        <h4>Total Number of Responses : {{total}}</h4>
+        <!--how many responses-->
+        <hr>
+        <table class="table table-bordered">
+
+            <tr>
+                <th class="event">Time Stamp</th>
+                <th class="event">Feedback ID</th>
+                <th class="event">Actions</th>
+            </tr>
+            <tr data-ng-repeat="i in feedback">
+               
+                <td>{{i.time}}</td>
+                <td>{{i.FeedID}}</td><!--feedback-->
+
+                <td class="text-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: block; margin: auto;">More Options <!--options for feedback-->
+                                     <span class="caret"></span>
+                                    </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="" data-ng-click="updatefeed(i.$id)" data-toggle="modal" data-target="#feedmodal">Details</a></li>
+                            <li><a href="" data-ng-click="removefeedback(i.$id)">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+        <div id="feedmodal" class="modal fade" role="dialog"> <!--show feedbac-->
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h3 class="modal-title" id="classModalLabel" style="float:left">
+                            Feedback ID : {{feedback[indexValue].FeedID}}
+                        </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="float:right;">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="btn-group" role="group" style="float: right; clear: both;">
+                            <!--control status-->
+                            <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: block; margin: auto;">
+                                                Status Settings
+                                                <span class="caret"></span>
+                                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="" data-ng-click="sts('Reviewed')">Review</a></li>
+                                <li><a href="" data-ng-click="sts('Resolved')">Resolve</a></li>
+                                <li><a href="" data-ng-click="sts('Pending')">Pending</a></li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li>Name: {{feedback[indexValue].Name}}</li>
+                            <li>Email Address: {{feedback[indexValue].Email}}</li>
+                            <li>Phone Number: {{feedback[indexValue].PhoneNumber}}</li>
+                            <li>Type of Feedback: {{feedback[indexValue].Service}}</li>
+                            <li>Status: {{feedback[indexValue].Status}}</li>
+                            <li>Message: {{feedback[indexValue].Message}}</li>
+                        </ul>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
